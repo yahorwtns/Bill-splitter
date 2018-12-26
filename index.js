@@ -15,7 +15,6 @@ const addUser = () => {
     users[userField.value] = [];
     option.text = userField.value;
     visitorDrop.add(option);
-
     refreshTable();
     userField.value ="";
     }
@@ -35,16 +34,17 @@ const addRowToTable = (user, price,food) => {
   const table = document.getElementById("table");
   const footer = document.getElementById("footer");
   const row = table.insertRow(1);
-  const cell1 = row.insertCell(0);
-  const cell2 = row.insertCell(1);
-  const cell3 = row.insertCell(2);
+  const cellUser = row.insertCell(0);
+  const cellPrice = row.insertCell(1);
+  const cellFood = row.insertCell(2);
   let totalSum = 0;
-  cell1.innerHTML = user;
-  cell2.innerHTML = price;
-  cell3.innerHTML = food;
+  
+  cellUser.innerHTML = user;
+  cellPrice.innerHTML = price;
+  cellFood.innerHTML = food;
   //calculate total price
-  for(let i = 1 ;i<table.rows.length;i++){
-      totalSum = totalSum + parseInt(table.rows[i].cells[1].innerHTML)
+  for(let i = 1, j=table.rows.length; i<j; i++){
+      totalSum += parseInt(table.rows[i].cells[1].innerHTML)
   }
   footer.innerHTML=`Сумма чека: ${totalSum}`;
 };
@@ -72,7 +72,7 @@ const refreshTable= () => {
       .map(item=>Object.keys(item)[0])
         .reduce((a,b)=>(a +","+ b),""));
 
-    for(let i =0;i<user.length;i++){
+    for(let i = 0, j=user.length; i < j ;i++){
         addRowToTable(user[i],price[i],food[i].substr(1))}
   
 }
