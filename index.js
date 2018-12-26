@@ -38,22 +38,22 @@ const addRowToTable = (user, price,food) => {
   const cellPrice = row.insertCell(1);
   const cellFood = row.insertCell(2);
   let totalSum = 0;
-  
+
   cellUser.innerHTML = user;
   cellPrice.innerHTML = price;
   cellFood.innerHTML = food;
   //calculate total price
-  for(let i = 1, j=table.rows.length; i<j; i++){
+  for(let i = 1, j = table.rows.length; i < j; i++){
       totalSum += parseInt(table.rows[i].cells[1].innerHTML)
   }
-  footer.innerHTML=`Сумма чека: ${totalSum}`;
+  footer.innerHTML = `Сумма чека: ${totalSum}`;
 };
 //delete all data from the table
 const clearTable = () => {
   const table = document.getElementById("table");
   let rows = table.rows.length;
   if(rows>1) {
-  for(let i=0;i<rows-1;i++){
+  for(let i = 0; i < rows - 1; i++){
     table.deleteRow(1);
   }
 }
@@ -64,15 +64,15 @@ const refreshTable= () => {
   // take all data from the users object
   let user = Object.keys(users);
   let price = Object.keys(users)
-  .map(user=>users[user]
-  .map(item=>Object.values(item)[0])
-  .reduce((a,b)=>(+a+ +b),0));
+  .map(user => users[user]
+  .map(item => Object.values(item)[0])
+  .reduce((a,b) => (+a+ +b),0));
   let food = Object.keys(users)
-    .map(user=>users[user]
-      .map(item=>Object.keys(item)[0])
-        .reduce((a,b)=>(a +","+ b),""));
+    .map(user => users[user]
+      .map(item => Object.keys(item)[0])
+        .reduce((a,b) => (a +","+ b),""));
 
-    for(let i = 0, j=user.length; i < j ;i++){
+    for(let i = 0, j = user.length; i < j ;i++){
         addRowToTable(user[i],price[i],food[i].substr(1))}
   
 }
