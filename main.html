@@ -6,49 +6,42 @@
    <link rel="stylesheet" href="style.css" media="screen, projection">
    <script src="index.js"></script>
  </head>
- <body>
-   
+  <body>
+    
     <div class="container1">
-    <p>Добавьте гостя:</p>
-    <div class="dws-input">
-    <input id="userName" type="text"  placeholder="ИМЯ ГОСТЯ">
-  </div>
+      <p>Добавьте гостя:</p>
+        <div class="dws-input">
+          <input id="userName" type="text"  placeholder="ИМЯ ГОСТЯ">
+        </div>
     <button onclick="addUser()">Добавить</button>
-      </div>
-
-      <div class ="container2">
-          <p>Для гостя:</p>
-      
-          <select id="visitorDrop" aria-placeholder="ДЛЯ ГОСТЯ">
-              </select>
-    <div class="dws-input">
-    <input id="dishName" type="text"  placeholder="НАЗВАНИЕ БЛЮДА"> 
-    <input id="price" type="number"  placeholder="СТОИМОСТЬ" min=0 max=1000000>
-    <span class="form__error">Укажите верную цену</span>
     </div>
-        
-       <button  onclick="addDish()">Добавить в заказ</button>
-  
-      </div>
-      
-   
-     <div class="container3">
+
+    <div class ="container2">
+      <p>Для гостя:</p>
+      <select id="visitorDrop" aria-placeholder="ДЛЯ ГОСТЯ">
+      </select>
+        <div class="dws-input">
+          <input id="dishName" type="text"  placeholder="НАЗВАНИЕ БЛЮДА"> 
+          <input id="price" type="number"  placeholder="СТОИМОСТЬ" min=0 max=1000000>
+          <span class="form__error">Укажите верную цену</span>
+         </div>
+      <button  onclick="addDish()">Добавить в заказ</button>
+    </div>
+    
+    <div class="container3">
       <table id="table">
-          <tr>
-            <th>Гость</th>
-            <th>Его Сумма</th>
-            <th>Его Заказ</th>
-          </tr>
-          <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-          </tr>
-        </table>
-  </div>
+        <tr>
+          <th>Гость</th>
+          <th>Его Сумма</th>
+          <th>Его Заказ</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </table>
+    </div>
   <footer id="footer"></footer>
-
-  
-
  </body> 
 </html>
