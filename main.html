@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <title>Bill splitter</title>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="style.css" media="screen, projection">
-   <script src="index.js"></script>
- </head>
-  <body>
-    
-    <div class="container1">
-      <p>Добавьте гостя:</p>
-        <div class="dws-input">
-          <input id="userName" type="text"  placeholder="ИМЯ ГОСТЯ">
-        </div>
-    <button onclick="addUser()">Добавить</button>
-    </div>
+  <head>
+    <title>Bill splitter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <!--/*custom css without using bulma.io*/link rel="stylesheet" href="style.css" media="screen, projection"-->
+    <script src="index.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <div class ="container2">
-      <p>Для гостя:</p>
-      <select id="visitorDrop" aria-placeholder="ДЛЯ ГОСТЯ">
-      </select>
-        <div class="dws-input">
-          <input id="dishName" type="text"  placeholder="НАЗВАНИЕ БЛЮДА"> 
-          <input id="price" type="number"  placeholder="СТОИМОСТЬ" min=0 max=1000000>
-          <span class="form__error">Укажите верную цену</span>
-         </div>
-      <button  onclick="addDish()">Добавить в заказ</button>
+  </head>
+  <body>
+    <div class="box">
+    <div class="container section" id="container1">
+      <p class="title is-4">Добавьте гостя:</p>
+        <div class="field">
+          <div class="control">
+            <input class="input is-info" style="width: 300px" id="userName" type="text"  placeholder="Имя гостя">  
+          </div>
+        </div>
+      <button class="button is-link" onclick="addUser()">Добавить</button>
+    </div>
+</div>
+
+    <div class="container section" style="display: none" id="container2">
+      <p class="title is-4">Для гостя:</p>
+      <div class="columns">
+        <div class="column is-narrow">
+          <div class="field">
+            <div class="control">
+              <div class="select is-info is-large">
+                <select style="width: 300px" id="visitorDrop" aria-placeholder="Для гостя"></select>
+              </div>
+            </div>
+          </div> 
+          <button class="button is-link" onclick="addDish()">Добавить в заказ</button> 
+        </div>
+        <div class="column is-narrow">
+          <div class="field">
+            <div class="control">
+              <input class="input is-info" style="width: 300px" id="dishName" type="text" placeholder="Название блюда">
+              <br/> <br/> 
+              <input class="input is-info" style="width: 200px" id="price" type="number" placeholder="Стоимость" min=0 max=1000000>
+              <div class="select is-info ">
+              <select style="width: 97px;" id="currency" aria-placeholder="Для гостя">
+                <!--TODO: currency convertation-->
+                <option>BYN</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <div class="container3">
-      <table id="table">
+    <div class="container section" style="display: none" id="container3">
+      <table id="table" class="table is-bordered">
         <tr>
           <th>Гость</th>
-          <th>Его Сумма</th>
-          <th>Его Заказ</th>
+          <th>Сумма</th>
+          <th>Заказ</th>
         </tr>
         <tr>
             <td></td>
@@ -42,6 +68,9 @@
         </tr>
       </table>
     </div>
-  <footer id="footer"></footer>
+
+    <div class="container section" style="display: none" id="container4">
+      <footer id="footer" class="title is-2"></footer>
+    </div>
  </body> 
 </html>
