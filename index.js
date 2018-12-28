@@ -29,8 +29,6 @@ const addUser = () => {
     //shows the next container with dish and price input 
     document.getElementById("container2").style.display = ""; 
     }
-
-
 };
 
 const addDish = () => {
@@ -81,7 +79,7 @@ const clearTable = () => {
   }
 };
 
-const refreshTable= () => {
+const refreshTable = () => {
   clearTable();
   // take all data from the users object
   const user = Object.keys(users);
@@ -94,9 +92,23 @@ const refreshTable= () => {
       .map( item => Object.keys(item)[0] )
         .join(", ") );
         
-
     for (let i = 0, j = user.length; i < j ;i++) {
       addRowToTable(user[i], price[i], food[i])
     }
-  
+}
+//highlight current guest
+const selectGuest = () => {
+  const visitorDrop = document.getElementById("visitorDrop");
+  const table = document.getElementById("table");
+//have to be fixed
+  for (let i = 1 ; i < table.rows.length; i++) {
+    table.rows[i].classList.remove("is-selected");
+  }
+
+  for (let i = 1; i < table.rows.length; i++) {
+    if (visitorDrop.value === table.rows[i].cells[0].innerText) {
+      table.rows[i].classList.add("is-selected");
+      return;
+    }
+  }
 }
